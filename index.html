@@ -41,12 +41,15 @@ top: 150px;
 left: 350px;
 border-radius:50%;
 width: 220px;
+
+animation:spin 4s linear infinite;
+animation-play-state: paused;
 }
 
 .spin{
- animation:spin 4s linear infinite;
+ animation-play-state: running;
 }
-
+ 
 @keyframes spin{
 from{transform:rotate(0deg);}
 to{transform: rotate(360deg);}
@@ -74,8 +77,8 @@ white-space: nowrap;
 }
 
 @keyframes scroll{
-0%{transform:translateX(0%)}
-100%{transform:translateX(-100%)}
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
 }
 
 .play-icon{
@@ -97,7 +100,10 @@ width: 77px;
 <img src="cat.png" class="ui">
 
 <div class="song-container">
-<span class="song-title">Now playing - Celin's current jam - Tension by Randymia</span>
+<span class="song-title">
+Now playing - Celin's current hyperfixation - Tension by Randymia &nbsp;&nbsp;&nbsp;
+Now playing - Celin's current hyperfixation - Tension by Randymia
+</span>
 </div>
 
 <img src="vinyl.png" class="vinyl" id="vinyl">
