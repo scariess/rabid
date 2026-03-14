@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>playing</title>
+
+<style>
+
+@font-face {
+ font-family:"Jacquarda" ;
+ src: url("JacquardaBastarda9-Regular.ttf");
+ font-size: 12;
+} 
+
+body{
+margin:0;
+background:#f5f5f5;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-family: "Jacquarda" ;
+
+}
+
+.player{
+position:relative;
+width: 920px;
+margin:auto;
+}
+
+.ui{
+width: 100%;
+cursor: pointer;
+display:block;
+}
+
+
+.vinyl{
+position:absolute;
+top: 150px;
+left: 350px;
+border-radius:50%;
+width: 220px;
+}
+
+.spin{
+ animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform: rotate(360deg);}
+}
+
+.song-container{
+position:absolute;
+bottom: 205px;
+left:295px;
+width:343px;
+height: 40px;
+overflow:hidden;
+white-space:nowrap;
+align-items:center;
+z-index: 1000;
+display: flex;
+}
+
+.song-title{
+display:inline-block;
+animation:scroll 15s linear infinite;
+font-size: 37px;
+color: #B58D8A;
+white-space: nowrap;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0%)}
+100%{transform:translateX(-100%)}
+}
+
+.play-icon{
+position:absolute;
+bottom:140px;
+left:425px;
+cursor:pointer;
+z-index:10000;
+width: 77px;
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="player">
+
+<img src="cat.png" class="ui">
+
+<div class="song-container">
+<span class="song-title">Now playing - Celin's current jam - Tension by Randymia</span>
+</div>
+
+<img src="vinyl.png" class="vinyl" id="vinyl">
+
+<img src="play.png" id="playIcon" class="play-icon">
+
+<audio id="song">
+<source src="tension.mp3" type="audio/mp3">
+</audio>
+
+</div>
+
+<script>
+let song = document.getElementById("song")
+let vinyl = document.getElementById("vinyl")
+let playIcon = document.getElementById("playIcon")
+
+playIcon.addEventListener("click", () => {
+
+if(song.paused){
+song.play()
+vinyl.classList.add("spin")
+playIcon.src = "pause.png"
+}else{
+song.pause()
+vinyl.classList.remove("spin")
+playIcon.src = "play.png"
+}
+})
+</script>
+
+</body>
+
+</html>
