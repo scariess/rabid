@@ -19,12 +19,13 @@ justify-content:center;
 align-items:center;
 height:100vh;
 font-family: "Jacquarda" ;
-
+overflow:hidden
 }
 
 .player{
 position:relative;
-width: 920px;
+width:100vw;
+max-width: 920px;
 margin:auto;
 }
 
@@ -78,7 +79,7 @@ white-space: nowrap;
 
 @keyframes scroll{
 0%{transform:translateX(0)}
-100%{transform:translateX(-50%)}
+100%{transform:translateX(-100%)}
 }
 
 .play-icon{
@@ -89,6 +90,14 @@ cursor:pointer;
 z-index:10000;
 width: 77px;
 }
+
+.ui, .vinyl, .play-icon{
+user-select:none;
+-webkit-user-drag:none;
+}
+
+
+
 
 
 </style>
